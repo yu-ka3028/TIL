@@ -16,15 +16,16 @@
 
 ### 環境
 
-| 技術 | バージョン | 備考 |
-| Ruby | |
-| Rails | |
+| 技術 | バージョン |
+| -- | -- |
+| Ruby | 3.2.3 |
+| Rails | 7.1.3.4 |
 | JavaScript | |
 | TailwindCSS/DaisyUI | |
 | Heroku/Mysql,JawsDB | |
 | Docker/Git/GitHub | |
 | 認証 | Sorcery | |
-| API | LINE ログイン,LINE Messaging API, OpenAI API | |
+| API | LINEログイン,LINE Messaging API, OpenAI API |
 
 ### 現状
 
