@@ -3,7 +3,7 @@ sorceryを動かす！
 ## 現状
 <!--タスク分解（何ができて、何ができてないかを可視化）-->
 - [x] LINEログインはできるところまで修正
-- [x] sorceryを動かす
+- [] sorceryを動かす
 ### 環境
 | 技術 | バージョン |
 | -- | -- |
@@ -18,6 +18,7 @@ sorceryを動かす！
 
 ## 成果
 <!--現状から持ってきて、ToDo更新して考察-->
+- [x] sorceryを動かす
 #### 作業時間：　60m
 #### 使用資料
 - [Sorceryのドキュメント](https://github.com/Sorcery/sorcery/wiki/Simple-Password-Authentication)
@@ -34,7 +35,7 @@ sorceryを動かす！
   TypeError: map.get is not a function
   ```
     - Oauth実装時はturboを切っておいたほうがJSとOauthの競合が起こりにくいのかな...
-  - 《検証》一旦、設定からJSを切ってみる
+  - 《検証》一旦、rails newした時の設定に戻してみる
   ```ruby
   <!DOCTYPE html>
 <html>
@@ -58,3 +59,4 @@ sorceryを動かす！
   - 《結果と考察》
     - sorceryが動くようになった
     - Oauthの時はturboを切っておくといいかももう少し深く調査必要
+      - そもそも、今回は切ったわけではないと思うし。
