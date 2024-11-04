@@ -53,3 +53,4 @@ callbackが動くようになること
   ```
   - 《結果と考察》成功
     - ：をなんとなく書くもの〜くらいにしか思ってなくて気づかなかった
+    - [ルーティング復習](https://github.com/yu-ka3028/TIL/blob/main/Rails/202410301300_LineLogin_routes_output.md)

@@ -40,13 +40,13 @@
    profile_image_url: nil,
    email: nil,
    provider: "line",
-   uid: "Ua71f8d15a2fc9ea468ecf2e0821908e2">
+   uid: "123abc">
    ```
    - 本番環境のログ
    ```ruby
   [1] pry(main)> User.find_by(username: "ゆーか")
   User Load (1.6ms)  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'ゆーか' LIMIT 1
-  => #<User:0x0000ffff85975128
+  => #<User:1234a
    id: 36,
    username: "ゆーか",
    crypted_password: nil,
@@ -57,7 +57,7 @@
    profile_image_url: nil,
    email: nil,
    provider: "line",
-   uid: "Ua71f8d15a2fc9ea468ecf2e0821908e2">
+   uid: "123abc">
   ```
   - 本番はline_user_idが残りっぱなし
 

@@ -19,7 +19,7 @@
 
 ## 成果
 <!--現状から持ってきて、ToDo更新して考察-->
-細々エラーは解決してきたが、callbackがまだうまくいっていない
+細々エラーは解決してきたが、callbackがまだうまくいっていない<br>
 デバッグ結果providerにlineが入らず、callbackに入っている？？
 ```ruby
 callback/provider
@@ -58,6 +58,7 @@ nil
     post "oauth/callback" => "oauths#callback"
     get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
     get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+    ```
     【自分の修正】
     ```ruby
       post 'oauth/:callback', to: 'oauths#callback'
@@ -83,4 +84,5 @@ nil
     web-1  | 10:32:20 web.1  |   
     web-1  | 10:32:20 web.1  | app/controllers/oauths_controller.rb:14:in `callback'
     ```
+    - oauth_paramsにするのはRails4？の時の書き方みたいなのでparamsで問題ない
   - 《検証》次回へ〜
