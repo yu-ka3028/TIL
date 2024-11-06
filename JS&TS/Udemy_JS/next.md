@@ -9,7 +9,7 @@
 - m
 #### 使用資料
 <!-- 使用資料(教材/書籍/ワークシート/Youtube) -->
-- §14
+- https://www.udemy.com/course/javascript-complete/learn/lecture/32341586#notes
 
 
 ## 詳細
