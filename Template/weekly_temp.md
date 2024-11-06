@@ -16,7 +16,7 @@
   - [⚪︎m:]()
   - [⚪︎m:]()
 
-##### ◆JavaScript
+##### ◆JavaScript/TypeScript
   - [⚪︎m:]()
   - [⚪︎m:]()
   - [⚪︎m:]()
