@@ -1,19 +1,51 @@
 ## 目的
 <!-- 目的(〜を知りたい/〜を実装したい) -->
+JSで演算子理解、論理演算子と優先順位の理解
 ## 成果
 <!-- 成果(できたこと/できなかったこと) -->
-- [ ]
-- [ ]
-- [ ]
+- [x] Aとaはどちらが大きい
+- [x] truthyとfalsyとは
+- [x] 論理演算子
+- [x] 演算子の優先順位
 #### 所要時間
-- m
+- 120m
 #### 使用資料
 <!-- 使用資料(教材/書籍/ワークシート/Youtube) -->
-
-
+- [MDN falsy](https://developer.mozilla.org/ja/docs/Glossary/Falsy)
+- [MDN 演算子の優先順位](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
 
 ## 詳細
 <!-- 詳細(キーワード/プロセス//具体例を挙げる/今回の課題解決を今後に繋げられる形で記録) -->
+- 大文字が先に来て、その後に小文字が続くルールのため```A > a => true```となる
+- tureとして判定されるものをtruthy、falseとして判定されるものをfalsyという
+  - MDNで8個のfalsyがリストにされており、これ以外はtruthyとなる
+  - [MDN falsy](https://developer.mozilla.org/ja/docs/Glossary/Falsy)
+- OR演算子は応用的によく使われる
+  - 例えば、ユーザーが何も入力しなかった('' = falsy)時のためにデフォルト値(右辺に設定)を書いておく
+  ```JavaScript
+  const input = '';
+  const userName = input || 'User';
+  ```
+- 演算子の優先順位はMDNで確認できる
+  - [MDN 演算子の優先順位](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
+```JavaScript
+const input = '';
+const userName = input || 'User';
+conts x = 15;
+x === 10 || x > 12 && userName
+console.log(ok);
+```
+  - ```x === 10 || x > 12 && userName```の場合
+    - リストの優先順位高い順に、```===``` > ```>``` > ```&&``` > ```||``` 
+    - 1. ```x > 12``` => true
+    - 2. ```x === 10``` => false
+    - この時点で、```x === 10(false) || x > 12(true) && userName```となり次は```&&```が優先される
+    - 3. &&は左辺tureなら右辺が返る：```true && userName``` => ```userName``` => 'User'
+    - 4. ||は左辺falseなら右辺が返る：```false || 'User'``` => 'User'
+    
 
 ## 考察
 <!-- 考察(今後の展望/) -->
+- truthyとfalsyはReactの講座でもやったけど、ようやく理解〜！
+- 演算の優先順位もドキュメントで確認しながら手を動かしてみたら結構理解できた！
+- 手を動かす...が大切はわかってたけど、実際に動かせるようになったら理解するのが楽しくなってきた！
