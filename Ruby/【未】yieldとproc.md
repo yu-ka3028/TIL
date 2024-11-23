@@ -1,0 +1,2 @@
+- 🍒p404~ブロック2つ以上ならproc？
+- [ブロックとJS/callback関数](https://github.com/yu-ka3028/TIL/blob/main/Ruby/202411231730.md)
