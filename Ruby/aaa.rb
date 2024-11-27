@@ -1,34 +1,65 @@
+
 class Product
-  attr_reader :name, :price
+  SOME_NAMES = ['Foo', 'Bar', 'Baz']
 
-  def initialize(name, price)
-    @name = name
-    @price = price
-  end
-
-  def to_s
-    "name: #{name}, price: #{price}"
+  def self.names_without_foo(names = SOME_NAMES)
+    # namesがデフォルト値だと、以下のコードは定数のSOME_NAMESを破壊的に変更していることになる
+    names.delete('Foo')
+    names
   end
 end
 
-product = Product.new('A great movie', 1000)
-p product.to_s #=> "name: A great movie, price: 1000"
+Product.names_without_foo #=> ["Bar", "Baz"]
 
-class DVD < Product
-  attr_reader :running_time
+# 定数の中身が変わってしまった！
+Product::SOME_NAMES       #=> ["Bar", "Baz"]
 
-  # def initialize(running_time, name, price)
-  def initialize(running_time, *args)
-    # super(name, price)
-    super(*args)
-    @running_time = running_time
-  end
+# ----------------------------------------
 
-  def to_s
-    # superでスーパークラスのto_sメソッドを呼び出す
-    "#{super}, running_time: #{running_time}"
+class Product
+  # 配列を凍結する
+  SOME_NAMES = ['Foo', 'Bar', 'Baz'].freeze
+
+  def self.names_without_foo(names = SOME_NAMES)
+    # freezeしている配列に対しては破壊的な変更はできない
+    names.delete('Foo')
+    names
   end
 end
 
-dvd = DVD.new('An awesome film', 3000, 120)
-p dvd.to_s #=> "name: An awesome film, price: 3000, running_time: 120"
+# エラーが発生するので予期せず定数の値が変更される事故が防げる
+Product.names_without_foo #=> RuntimeError: can't modify frozen Array
+
+# ----------------------------------------
+
+class Product
+  # 配列はfreezeされるが中身の文字列はfreezeされない
+  SOME_NAMES = ['Foo', 'Bar', 'Baz'].freeze
+end
+# 1番目の要素を破壊的に大文字に変更する
+Product::SOME_NAMES[0].upcase!
+# 1番目の要素の値が変わってしまった！
+Product::SOME_NAMES #=> ["FOO", "Bar", "Baz"]
+
+# ----------------------------------------
+
+class Product
+  # 中身の文字列もfreezeする
+  SOME_NAMES = ['Foo'.freeze, 'Bar'.freeze, 'Baz'.freeze].freeze
+end
+# 今度は中身もfreezeしているので破壊的な変更はできない
+Product::SOME_NAMES[0].upcase! #=> can't modify frozen String: "Foo" (FrozenError)
+
+# ----------------------------------------
+
+# mapメソッドで各要素をfreezeし、最後にmapメソッドの戻り値の配列をfreezeする
+SOME_NAMES = ['Foo', 'Bar', 'Baz'].map(&:freeze).freeze
+
+# ----------------------------------------
+
+class Product
+  # 数値やシンボル、true/falseはfreeze不要（しても構わないが、意味がない）
+  SOME_VALUE = 0
+  SOME_TYPE = :foo
+  SOME_FLAG = true
+end
