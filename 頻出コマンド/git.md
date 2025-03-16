@@ -19,3 +19,14 @@
   - Dockerを使用している場合
   `docker compose build`
   `docker compose up`
+
+# リモートとローカルに差があるとき
+- 丁寧にやるなら：fetch + merge = pull
+  - リモートの状態をローカルに持ってくる
+  `git fetch origin main`
+
+  - ローカルの状態をマージ
+  `git merge origin/main`
+
+- 強制pushもできる
+  `git push -f origin main`
