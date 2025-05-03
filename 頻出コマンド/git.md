@@ -30,3 +30,13 @@
 
 - 強制pushもできる
   `git push -f origin main`
+
+# チーム開発の動作確認
+  `git fetch`
+  作業ブランチへ移動
+  `git pull origin main`
+
+# dbのエラー
+- コンテナ落とす
+- dbリセット
+`docker-compose run --rm web rails db:migrate:reset`
