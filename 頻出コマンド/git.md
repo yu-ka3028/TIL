@@ -32,7 +32,9 @@
   `git push -f origin main`
 
 # チーム開発の動作確認
+  mainブランチ
   `git fetch`
+  `git pull origin main`
   作業ブランチへ移動
   `git pull origin main`
 
