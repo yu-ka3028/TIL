@@ -9,10 +9,9 @@ class Student{
 //データの保管はprivateとして保護する
 public:
     void SetID(int num){id = num;}
-    //文字列はポインタで受け取る
+    //文字列は代入不可能のため、ポインタでアドレスを受け取り、値へのアクセスを可能にする
     //char strは先頭文字のみを示す
-    //文字列全体を取得する場合は(char*) strのポインタ型で受け取る
-    //char *strも同様に文字列全体を扱える（str先頭のアドレスを取得し、そのアドレスから文字列全体を取得）
+    //char *strとchar* strは同じだが、後者の方が読みやすい。char *strだとstrの値の取得と迷う
     void SetName(char *str){
       //文字列はname=で代入できないのでstrcpyで代入
       //strcpy(コピー元、コピー先)
@@ -20,11 +19,14 @@ public:
     }
     int GetID(){return id;}
     char *GetName() const {
-        //char型にポインタを返し、nameの文字列全体を取得
+        //(char *)はC言語のキャスト演算子の書き方
+        //nameをchar型にキャストして、nameの文字列全体を取得している（そもそもchar型なんだがなぜ...??）
         return (char *)name;
     }
 private:
     int id;
+    //char型の配列を30個分確保
+    //C++は文字列をString型ではなくchar型の配列で扱う
     char name[30];
 };
 
